@@ -1,4 +1,4 @@
-let point = function(xcor,ycor){
+const Point = function(xcor,ycor){
       let x = xcor;
       let y = ycor;
 
@@ -15,4 +15,10 @@ let point = function(xcor,ycor){
             let ysquared = (y-p2.getY())*(y-p2.getY());
             return Math.sqrt(xsquared + ysquared);
       }
+      function direction(){
+          return Math.atan(y/x)*180/Math.Pi;
+      }
+      return{getX,getY,magnitude,distanceTo,direction};
 }
+
+module.exports = Point;
