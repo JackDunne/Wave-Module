@@ -11,42 +11,52 @@ const Wave = function(array){
     function getPointArray(){return points;}
 
     function shiftX(value){
-        for(a=0;a<numberOfPoints;a++){
-            let tempX = p1.getX();
-            let tempY = p1.getY();
+        for(var a=0;a<numberOfPoints;a++){
+            let tempX = transformedPoints[a].getX();
+            let tempY = transformedPoints[a].getY();
             tempX += value;
-            let tempPoint = new Point(tempX,tempY);//this stuff probably isnt correct
-            for(let x = 0;x<transformedPoints.length;x++){
-                transformedPoints[x] =
-            }
+            transformedPoints[a] = new Point(tempX,tempY);
         }
     }
+
 
     function shiftY(value){
-        for(a=0;a<numberOfPoints;a++){
-            let tempX = p1.getX();
-            let tempY = p1.getY();
+        for(var a=0;a<numberOfPoints;a++){
+            let tempX = transformedPoints[a].getX();
+            let tempY = transformedPoints[a].getY();
             tempY += value;
-            let tempPoint = new Point(tempX,tempY);
+            transformedPoints[a] = new Point(tempX,tempY);
         }
     }
 
-    function StretchX(value){
-        for(a=0;a<numberOfPoints;a++){
-            let tempX = p1.getX();
-            let tempY = p1.getY();
-            tempX = tempX*value;
-            let tempPoint = new Point(tempX,tempY);
+    function stetchX(value){
+        for(var a=0;a<numberOfPoints;a++){
+            let tempX = transformedPoints[a].getX();
+            let tempY = transformedPoints[a].getY();
+            tempX *= value;
+            transformedPoints[a] = new Point(tempX,tempY);
         }
     }
 
-    function StretchY(value){
-        for(a=0;a<numberOfPoints;a++){
-            let tempX = p1.getX();
-            let tempY = p1.getY();
-            tempY = tempY*value;
-            let tempPoint = new Point(tempX,tempY);
+    function stetchY(value){
+        for(var a=0;a<numberOfPoints;a++){
+            let tempX = transformedPoints[a].getX();
+            let tempY = transformedPoints[a].getY();
+            tempY *= value;
+            transformedPoints[a] = new Point(tempX,tempY);
         }
+    }
+
+    function transformation(){
+            return transformedPoints;
+    }
+
+    outputOf(xvalue){
+         for(let x = 0;x<numberOfPoints;x++){
+             if(points.getX()[x] == xvalue){
+                 return points.getY();//check this one over
+             }
+         }
     }
 }
 module.exports = Wave;
