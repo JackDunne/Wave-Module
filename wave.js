@@ -3,8 +3,8 @@ const Wave = function(array){
     let numberOfPoints = array.length;
     let points = array;
     let transformedPoints = array;
-    let range =
-    let period =
+    let range;
+    let period;
 
     function getRange(){return range;}
     function getPeriod(){return period;}
@@ -54,9 +54,12 @@ const Wave = function(array){
     outputOf(xvalue){
          for(let x = 0;x<numberOfPoints;x++){
              if(points.getX()[x] == xvalue){
-                 return points.getY();//check this one over
+                 return points.getY();
+             }
+             else{
+                 console.log("Your xvalue input does not match up with a y value");
              }
          }
-    }
+    }//for calculate, run through, makes temp variable, if other [x] are greater than temp, replace;
 }
 module.exports = Wave;
