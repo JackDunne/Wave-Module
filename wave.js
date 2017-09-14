@@ -48,18 +48,48 @@ const Wave = function(array){
     }
 
     function transformation(){
-            return transformedPoints;
+        return transformedPoints;
     }
 
     outputOf(xvalue){
-         for(let x = 0;x<numberOfPoints;x++){
-             if(points.getX()[x] == xvalue){
-                 return points.getY();
-             }
-             else{
-                 console.log("Your xvalue input does not match up with a y value");
-             }
-         }
-    }//for calculate, run through, makes temp variable, if other [x] are greater than temp, replace;
+        for(let x = 0;x<numberOfPoints;x++){
+            if(points.getX()[x] == xvalue){
+                return points.getY();
+            }
+            else{
+                console.log("Your xvalue input does not match up with a y value");
+            }
+        }
+    }
+    function calculateSpan(array,coordinate){
+        let min;
+        let max;
+        if(coordinate == "x"){
+            for(let a = 1;a<numberOfPoints;a++){
+                min = points[0].getX();
+                max = points[0].getX();
+                if(points[a].getX()<min){
+                    min = points[a].getX();
+                }
+                if(points[a].getX()>max){
+                    max = points[a].getX();
+                }
+            }
+            return max-min;
+        }
+        if(coordinate == "y"){
+            for(let a = 1;a<numberOfPoints;a++){
+                min = points[0].getY();
+                max = points[0].getY();
+                if(points[a].getY()<min){
+                    min = points[a].getY();
+                }
+                if(points[a].getY()>max){
+                    max = points[a].getY();
+                }
+            }
+            return max-min;
+        }
+    }
 }
 module.exports = Wave;
