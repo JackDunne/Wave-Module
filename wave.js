@@ -3,8 +3,8 @@ const Wave = function(array){
     let numberOfPoints = array.length;
     let points = array;
     let transformedPoints = array;
-    let range;
-    let period;
+    let range = calculateSpan(points, "y");
+    let period = calculateSpan(points, "x");
 
     function getRange(){return range;}
     function getPeriod(){return period;}
@@ -51,7 +51,7 @@ const Wave = function(array){
         return transformedPoints;
     }
 
-    outputOf(xvalue){
+    function outputOf(xvalue){
         for(let x = 0;x<numberOfPoints;x++){
             if(points.getX()[x] == xvalue){
                 return points.getY();
@@ -91,5 +91,6 @@ const Wave = function(array){
             return max-min;
         }
     }
+    return{shiftX,shiftY,stretchX,stretchY,getPointArray,getRange,getPeriod,transform,outputOf};
 }
 module.exports = Wave;

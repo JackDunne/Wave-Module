@@ -9,7 +9,9 @@ const Point = function(xcor,ycor){
             let dist = Math.sqrt(x*x + y*y);
             return dist;
       }
-
+      function print(){
+          console.log("("+x+", "+y+")");
+      }
       function distanceTo(p2){
             let xsquared = (x-p2.getX())*(x-p2.getX());
             let ysquared = (y-p2.getY())*(y-p2.getY());
@@ -18,7 +20,7 @@ const Point = function(xcor,ycor){
       function direction(){
           return Math.atan(y/x)*180/Math.Pi;
       }
-      return{getX,getY,magnitude,distanceTo,direction};
+      return{getX,getY,magnitude,distanceTo,direction,print};
 }
 
 module.exports = Point;
