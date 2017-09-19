@@ -29,7 +29,7 @@ const Wave = function(array){
         }
     }
 
-    function stetchX(value){
+    function stretchX(value){
         for(var a=0;a<numberOfPoints;a++){
             let tempX = transformedPoints[a].getX();
             let tempY = transformedPoints[a].getY();
@@ -38,7 +38,7 @@ const Wave = function(array){
         }
     }
 
-    function stetchY(value){
+    function stretchY(value){
         for(var a=0;a<numberOfPoints;a++){
             let tempX = transformedPoints[a].getX();
             let tempY = transformedPoints[a].getY();
@@ -52,15 +52,10 @@ const Wave = function(array){
     }
 
     function outputOf(xvalue){
-        for(let x = 0;x<numberOfPoints;x++){
-            if(points.getX()[x] == xvalue){
-                return points.getY();
-            }
-            else{
-                console.log("Your xvalue input does not match up with a y value");
-            }
-        }
+        let position = xvalue%period;
+        return points[position].getY();
     }
+
     function calculateSpan(array,coordinate){
         let min;
         let max;
@@ -77,7 +72,7 @@ const Wave = function(array){
             }
             return max-min;
         }
-        if(coordinate == "y"){
+        else if(coordinate == "y"){
             for(let a = 1;a<numberOfPoints;a++){
                 min = points[0].getY();
                 max = points[0].getY();
@@ -91,6 +86,6 @@ const Wave = function(array){
             return max-min;
         }
     }
-    return{shiftX,shiftY,stretchX,stretchY,getPointArray,getRange,getPeriod,transform,outputOf};
+    return{shiftX,shiftY,stretchX,stretchY,getPointArray,getRange,getPeriod,transformation,outputOf};
 }
 module.exports = Wave;
